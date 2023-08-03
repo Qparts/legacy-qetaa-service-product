@@ -22,8 +22,6 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.sun.org.apache.xml.internal.resolver.Catalog;
-
 import qetaa.service.product.dao.DAO;
 import qetaa.service.product.filters.Secured;
 import qetaa.service.product.filters.SecuredCustomer;
@@ -32,6 +30,7 @@ import qetaa.service.product.filters.ValidApp;
 import qetaa.service.product.helpers.AppConstants;
 import qetaa.service.product.helpers.Helper;
 import qetaa.service.product.model.Category;
+import qetaa.service.product.model.Catalog;
 import qetaa.service.product.model.CategoryHolder;
 import qetaa.service.product.model.Manufacturer;
 import qetaa.service.product.model.ManufacturerHolder;
