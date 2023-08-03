@@ -17,6 +17,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import qetaa.service.product.model.meta.ProductReview;
+import qetaa.service.product.model.meta.ProductSpecification;
+import qetaa.service.product.model.meta.ProductTag;
+
 @Table(name="prd_product")
 @Entity 
 public class Product implements Serializable {
@@ -40,13 +44,22 @@ public class Product implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created;
 	@Column(name="make_id")
-	private int makeId;
+	private Integer makeId;//could be null
+	@Column(name="manufacturer_id")
+	private Integer manufacturerId;
+	@Column(name="category_id")
+	private Integer categoryId;
+	
+	@Transient
+	private List<ProductTag> tags;
+	@Transient
+	private List<ProductSpecification> specs;
+	@Transient
+	private List<ProductReview> reviews;
 	@Transient
 	private List<ProductStock> stockList;
 	@Transient
 	private List<ProductPrice> priceList;
-	
-	
 	
 	
 	public List<ProductPrice> getPriceList() {
@@ -85,10 +98,10 @@ public class Product implements Serializable {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public int getMakeId() {
+	public Integer getMakeId() {
 		return makeId;
 	}
-	public void setMakeId(int makeId) {
+	public void setMakeId(Integer makeId) {
 		this.makeId = makeId;
 	}
 	public Date getCreated() {
@@ -104,12 +117,40 @@ public class Product implements Serializable {
 		this.productNumberUndecorated = productNumberUndecorated;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
 
+
+	public List<ProductTag> getTags() {
+		return tags;
+	}
+	public void setTags(List<ProductTag> tags) {
+		this.tags = tags;
+	}
+	public Integer getManufacturerId() {
+		return manufacturerId;
+	}
+	public void setManufacturerId(Integer manufacturerId) {
+		this.manufacturerId = manufacturerId;
+	}
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+	public List<ProductSpecification> getSpecs() {
+		return specs;
+	}
+	public void setSpecs(List<ProductSpecification> specs) {
+		this.specs = specs;
+	}
+	public List<ProductReview> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<ProductReview> reviews) {
+		this.reviews = reviews;
+	}
+	
+	
+	
+	
 }

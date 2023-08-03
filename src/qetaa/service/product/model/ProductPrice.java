@@ -35,11 +35,18 @@ public class ProductPrice implements Serializable{
 	private Date created;
 	@Column(name="created_by")
 	private int createdBy;
+	@Column(name="status")
+	private char status;
 	
 	
 	
 	
-	
+	public char getStatus() {
+		return status;
+	}
+	public void setStatus(char status) {
+		this.status = status;
+	}
 	public double getCostPriceWv() {
 		return costPriceWv;
 	}
@@ -88,5 +95,7 @@ public class ProductPrice implements Serializable{
 	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;
 	}
+	
+
 	
 }
